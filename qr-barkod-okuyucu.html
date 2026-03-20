@@ -1,37 +1,222 @@
-GİZLİLİK POLİTİKASI — QR Barkod Okuyucu
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gizlilik Politikası — QR Barkod Okuyucu</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
 
-Son güncelleme: Mart 2026
+    body {
+      font-family: 'Segoe UI', Arial, sans-serif;
+      background: #f5f5f5;
+      color: #333;
+      padding: 30px 20px;
+    }
 
-QR Barkod Okuyucu uygulaması, kullanıcıların gizliliğine saygı gösterir.
+    .container {
+      max-width: 780px;
+      margin: 0 auto;
+      background: #ffffff;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+    }
 
-VERİ TOPLAMA: Bu uygulama hiçbir kişisel veri toplamaz, sunucuya göndermez 
-veya üçüncü taraflarla paylaşmaz. Tüm tarama geçmişi yalnızca kullanıcının 
-cihazında yerel olarak saklanır.
+    .header {
+      background: #1a73e8;
+      color: white;
+      padding: 36px 40px;
+    }
 
-İZİNLER: Uygulama yalnızca kamera iznine ihtiyaç duyar (QR/barkod tarama için).
+    .header h1 {
+      font-size: 24px;
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
 
-İLETİŞİM: Sorularınız için geliştirici ile iletişime geçebilirsiniz.
+    .header .subtitle {
+      font-size: 13px;
+      opacity: 0.85;
+    }
 
-Geliştirici: Mustafa Temur & We Are TEMCOM
+    .lang-tabs {
+      display: flex;
+      background: #f0f0f0;
+      border-bottom: 1px solid #ddd;
+    }
 
+    .lang-tab {
+      padding: 12px 28px;
+      cursor: pointer;
+      font-size: 14px;
+      font-weight: 600;
+      color: #666;
+      border: none;
+      background: transparent;
+      transition: all 0.2s;
+    }
 
+    .lang-tab.active {
+      background: #ffffff;
+      color: #1a73e8;
+      border-bottom: 2px solid #1a73e8;
+    }
 
+    .content {
+      padding: 36px 40px;
+      display: none;
+    }
 
+    .content.active { display: block; }
 
-PRIVACY POLICY — QR Barkod Okuyucu (ENGLİSH)
+    .section {
+      margin-bottom: 28px;
+    }
 
-Last updated: March 2026
+    .section h2 {
+      font-size: 15px;
+      font-weight: 700;
+      color: #1a73e8;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 10px;
+      padding-bottom: 6px;
+      border-bottom: 1px solid #e8e8e8;
+    }
 
-The QR Barcode Reader application respects user privacy.
+    .section p {
+      font-size: 14px;
+      line-height: 1.7;
+      color: #444;
+    }
 
-DATA COLLECTION: This application does not collect, send to servers,
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: #e8f5e9;
+      color: #2e7d32;
+      border-radius: 20px;
+      padding: 6px 14px;
+      font-size: 13px;
+      font-weight: 600;
+      margin-bottom: 16px;
+    }
 
-or share with third parties any personal data. All browsing history is stored only locally on the user's
+    .badge::before {
+      content: "✓";
+      font-weight: 700;
+    }
 
-device.
+    .permission-box {
+      background: #f8f9fa;
+      border-left: 3px solid #1a73e8;
+      border-radius: 4px;
+      padding: 12px 16px;
+      font-size: 14px;
+      color: #444;
+      line-height: 1.6;
+    }
 
-PERMITS: The application only requires camera permission (for QR/barcode scanning).
+    .footer {
+      background: #f8f9fa;
+      padding: 20px 40px;
+      border-top: 1px solid #eee;
+      font-size: 13px;
+      color: #888;
+      text-align: center;
+    }
 
-CONTACT: You can contact the developer for any questions.
+    .footer strong { color: #555; }
+  </style>
+</head>
+<body>
 
-Geliştirici: Mustafa Temur & We Are TEMCOM
+<div class="container">
+
+  <div class="header">
+    <h1>🔍 QR Barkod Okuyucu</h1>
+    <div class="subtitle">Gizlilik Politikası / Privacy Policy &nbsp;·&nbsp; Son güncelleme / Last updated: Mart 2026</div>
+  </div>
+
+  <div class="lang-tabs">
+    <button class="lang-tab active" onclick="switchLang('tr')">🇹🇷 Türkçe</button>
+    <button class="lang-tab" onclick="switchLang('en')">🇬🇧 English</button>
+  </div>
+
+  <!-- TÜRKÇE -->
+  <div class="content active" id="lang-tr">
+
+    <div class="section">
+      <span class="badge">Kişisel Veri Toplamıyoruz</span>
+      <p>QR Barkod Okuyucu uygulaması, kullanıcıların gizliliğine saygı gösterir ve kişisel verilerin korunmasını öncelik olarak benimser.</p>
+    </div>
+
+    <div class="section">
+      <h2>Veri Toplama</h2>
+      <p>Bu uygulama hiçbir kişisel veri toplamaz, sunucuya göndermez veya üçüncü taraflarla paylaşmaz. Tüm tarama geçmişi yalnızca kullanıcının cihazında yerel olarak saklanır.</p>
+    </div>
+
+    <div class="section">
+      <h2>İzinler</h2>
+      <div class="permission-box">
+        📷 <strong>Kamera İzni</strong> — Yalnızca QR kod ve barkod tarama işlemi için kullanılır. Kamera görüntüsü kaydedilmez veya iletilmez.
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>İletişim</h2>
+      <p>Gizlilik politikasına ilişkin sorularınız için geliştirici ile iletişime geçebilirsiniz.</p>
+      <br>
+      <p><strong>Geliştirici:</strong> Mustafa Temur &amp; We Are TEMCOM</p>
+    </div>
+
+  </div>
+
+  <!-- ENGLISH -->
+  <div class="content" id="lang-en">
+
+    <div class="section">
+      <span class="badge">No Personal Data Collected</span>
+      <p>The QR Barcode Reader application respects user privacy and treats the protection of personal data as a priority.</p>
+    </div>
+
+    <div class="section">
+      <h2>Data Collection</h2>
+      <p>This application does not collect, transmit to servers, or share with third parties any personal data. All scan history is stored only locally on the user's device.</p>
+    </div>
+
+    <div class="section">
+      <h2>Permissions</h2>
+      <div class="permission-box">
+        📷 <strong>Camera Permission</strong> — Used solely for QR code and barcode scanning. Camera footage is never recorded or transmitted.
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>Contact</h2>
+      <p>You can contact the developer for any questions regarding this privacy policy.</p>
+      <br>
+      <p><strong>Developer:</strong> Mustafa Temur &amp; We Are TEMCOM</p>
+    </div>
+
+  </div>
+
+  <div class="footer">
+    <strong>Mustafa Temur &amp; We Are TEMCOM</strong> &nbsp;·&nbsp; QR Barkod Okuyucu &nbsp;·&nbsp; 2026
+  </div>
+
+</div>
+
+<script>
+  function switchLang(lang) {
+    document.querySelectorAll('.content').forEach(el => el.classList.remove('active'));
+    document.querySelectorAll('.lang-tab').forEach(el => el.classList.remove('active'));
+    document.getElementById('lang-' + lang).classList.add('active');
+    event.target.classList.add('active');
+  }
+</script>
+
+</body>
+</html>
