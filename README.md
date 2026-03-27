@@ -11,6 +11,8 @@ GitHub Pages as a static HTML file.
 | Application | Privacy Policy |
 |---|---|
 | QR Barkod Okuyucu | [View](https://mustafatemur.github.io/privacy-policies/qr-barkod-okuyucu.html) |
+| FocusQR Pomodoro | [View](https://mustafatemur.github.io/privacy-policies/focusqr-pomodoro.html) |
+
 
 ## 🌐 Base URL
 https://mustafatemur.github.io/privacy-policies/
