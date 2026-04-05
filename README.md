@@ -12,6 +12,7 @@ GitHub Pages as a static HTML file.
 |---|---|
 | QR Barkod Okuyucu | [View](https://mustafatemur.github.io/privacy-policies/qr-barkod-okuyucu.html) |
 | FocusQR Pomodoro | [View](https://mustafatemur.github.io/privacy-policies/focusqr-pomodoro.html) |
+| TACTİQ Flashlight | [View](https://mustafatemur.github.io/privacy-policies/tactiq.html) |
 
 
 ## 🌐 Base URL
