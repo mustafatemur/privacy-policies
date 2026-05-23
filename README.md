@@ -28,4 +28,4 @@ https://mustafatemur.github.io/privacy-policies/
 ## 📧 Contact
 
 For any privacy-related questions:  
-**wearetemcom@gmail.com**
+**temcom.dev@gmail.com**
