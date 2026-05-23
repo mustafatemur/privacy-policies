@@ -1,28 +1,635 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-  <meta charset="UTF-8">
-  <title>OffGridMsg Gizlilik Politikası</title>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>OffGridMsg — Gizlilik Politikası</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Barlow:wght@300;400;600;700&display=swap');
+
+    :root {
+      --black:   #050503;
+      --gold:    #FFD700;
+      --amber:   #FFA500;
+      --dim:     #CC8800;
+      --surface: #0D0D09;
+      --border:  rgba(255,215,0,0.15);
+      --text:    #E8D9A0;
+      --muted:   #8A7A50;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--black);
+      color: var(--text);
+      font-family: 'Barlow', sans-serif;
+      font-weight: 300;
+      line-height: 1.85;
+      font-size: 16px;
+    }
+
+    /* ── NOISE TEXTURE OVERLAY ── */
+    body::before {
+      content: '';
+      position: fixed; inset: 0; z-index: 0;
+      opacity: 0.03;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+      pointer-events: none;
+    }
+
+    /* ── HEADER ── */
+    header {
+      position: relative; z-index: 1;
+      border-bottom: 1px solid var(--border);
+      padding: 48px 0 40px;
+      text-align: center;
+      background: linear-gradient(180deg, rgba(255,215,0,0.04) 0%, transparent 100%);
+    }
+
+    .logo-morse {
+      font-family: 'Share Tech Mono', monospace;
+      font-size: 13px;
+      letter-spacing: 4px;
+      color: var(--dim);
+      margin-bottom: 20px;
+      opacity: 0.7;
+    }
+
+    .app-name {
+      font-family: 'Share Tech Mono', monospace;
+      font-size: clamp(28px, 5vw, 48px);
+      font-weight: 400;
+      color: var(--gold);
+      letter-spacing: 3px;
+      text-shadow: 0 0 30px rgba(255,215,0,0.4);
+    }
+
+    .page-title {
+      font-size: clamp(13px, 2vw, 16px);
+      letter-spacing: 6px;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-top: 10px;
+      font-weight: 400;
+    }
+
+    .last-updated {
+      display: inline-block;
+      margin-top: 18px;
+      font-family: 'Share Tech Mono', monospace;
+      font-size: 11px;
+      color: var(--muted);
+      border: 1px solid var(--border);
+      padding: 4px 14px;
+      border-radius: 2px;
+      letter-spacing: 2px;
+    }
+
+    /* ── LAYOUT ── */
+    .container {
+      position: relative; z-index: 1;
+      max-width: 820px;
+      margin: 0 auto;
+      padding: 0 24px 80px;
+    }
+
+    /* ── ALERT BOX ── */
+    .alert {
+      margin: 40px 0;
+      border: 1px solid rgba(255,165,0,0.4);
+      border-left: 4px solid var(--amber);
+      background: rgba(255,165,0,0.05);
+      padding: 18px 24px;
+      border-radius: 2px;
+      font-size: 14px;
+      color: var(--amber);
+      font-family: 'Share Tech Mono', monospace;
+      letter-spacing: 0.5px;
+    }
+
+    .alert strong { color: var(--gold); }
+
+    /* ── SECTION ── */
+    section {
+      margin-top: 48px;
+      padding-top: 48px;
+      border-top: 1px solid var(--border);
+    }
+
+    section:first-of-type { border-top: none; margin-top: 40px; }
+
+    .section-num {
+      font-family: 'Share Tech Mono', monospace;
+      font-size: 11px;
+      color: var(--dim);
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+
+    h2 {
+      font-family: 'Barlow', sans-serif;
+      font-weight: 700;
+      font-size: clamp(18px, 3vw, 22px);
+      color: var(--gold);
+      letter-spacing: 0.5px;
+      margin-bottom: 20px;
+      line-height: 1.3;
+    }
+
+    h3 {
+      font-weight: 600;
+      font-size: 15px;
+      color: var(--amber);
+      margin: 28px 0 10px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      font-size: 13px;
+    }
+
+    p { margin-bottom: 16px; color: var(--text); }
+
+    /* ── PERMISSION TABLE ── */
+    .perm-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 20px 0;
+      font-size: 14px;
+    }
+
+    .perm-table th {
+      background: rgba(255,215,0,0.08);
+      color: var(--gold);
+      font-family: 'Share Tech Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      padding: 12px 16px;
+      text-align: left;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .perm-table td {
+      padding: 12px 16px;
+      border-bottom: 1px solid rgba(255,215,0,0.06);
+      vertical-align: top;
+      color: var(--text);
+    }
+
+    .perm-table tr:last-child td { border-bottom: none; }
+    .perm-table tr:hover td { background: rgba(255,215,0,0.03); }
+
+    .perm-name {
+      font-family: 'Share Tech Mono', monospace;
+      color: var(--amber);
+      font-size: 13px;
+      white-space: nowrap;
+    }
+
+    /* ── RIGHTS LIST ── */
+    .rights-list {
+      list-style: none;
+      margin: 16px 0;
+    }
+
+    .rights-list li {
+      padding: 10px 0 10px 28px;
+      position: relative;
+      border-bottom: 1px solid rgba(255,215,0,0.05);
+      color: var(--text);
+      font-size: 15px;
+    }
+
+    .rights-list li::before {
+      content: '▸';
+      position: absolute;
+      left: 0;
+      color: var(--gold);
+      font-size: 12px;
+      top: 12px;
+    }
+
+    .rights-list li:last-child { border-bottom: none; }
+
+    .rights-list strong { color: var(--gold); font-weight: 600; }
+
+    /* ── BADGE ROW ── */
+    .badge-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin: 20px 0;
+    }
+
+    .badge {
+      font-family: 'Share Tech Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 2px;
+      padding: 6px 14px;
+      border: 1px solid var(--border);
+      border-radius: 2px;
+      color: var(--dim);
+      text-transform: uppercase;
+    }
+
+    .badge.active {
+      border-color: rgba(255,215,0,0.4);
+      color: var(--gold);
+      background: rgba(255,215,0,0.06);
+    }
+
+    /* ── NO DATA BOX ── */
+    .no-data-box {
+      border: 1px solid rgba(255,215,0,0.25);
+      background: rgba(255,215,0,0.04);
+      border-radius: 4px;
+      padding: 28px 32px;
+      text-align: center;
+      margin: 24px 0;
+    }
+
+    .no-data-box .icon {
+      font-size: 32px;
+      display: block;
+      margin-bottom: 12px;
+    }
+
+    .no-data-box strong {
+      display: block;
+      font-family: 'Share Tech Mono', monospace;
+      font-size: 15px;
+      color: var(--gold);
+      letter-spacing: 2px;
+      margin-bottom: 8px;
+    }
+
+    .no-data-box p {
+      font-size: 14px;
+      color: var(--muted);
+      margin: 0;
+    }
+
+    /* ── CONTACT CARD ── */
+    .contact-card {
+      border: 1px solid var(--border);
+      border-left: 4px solid var(--gold);
+      background: var(--surface);
+      padding: 24px 28px;
+      border-radius: 2px;
+      margin-top: 20px;
+    }
+
+    .contact-card .label {
+      font-family: 'Share Tech Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 6px;
+    }
+
+    .contact-card .value {
+      font-family: 'Share Tech Mono', monospace;
+      font-size: 15px;
+      color: var(--gold);
+    }
+
+    .contact-card .value a {
+      color: var(--gold);
+      text-decoration: none;
+      border-bottom: 1px solid rgba(255,215,0,0.3);
+    }
+
+    .contact-card .value a:hover { border-color: var(--gold); }
+
+    /* ── CHILD SAFETY BLOCK ── */
+    .child-safe {
+      display: flex;
+      align-items: flex-start;
+      gap: 20px;
+      border: 1px solid rgba(255,165,0,0.3);
+      background: rgba(255,165,0,0.04);
+      border-radius: 4px;
+      padding: 24px;
+      margin: 20px 0;
+    }
+
+    .child-safe .cs-icon { font-size: 28px; flex-shrink: 0; }
+
+    .child-safe .cs-text strong {
+      display: block;
+      color: var(--amber);
+      font-weight: 600;
+      margin-bottom: 6px;
+    }
+
+    .child-safe .cs-text p { margin: 0; font-size: 14px; color: var(--muted); }
+
+    /* ── FOOTER ── */
+    footer {
+      position: relative; z-index: 1;
+      border-top: 1px solid var(--border);
+      padding: 32px 24px;
+      text-align: center;
+    }
+
+    .footer-morse {
+      font-family: 'Share Tech Mono', monospace;
+      font-size: 18px;
+      color: var(--dim);
+      letter-spacing: 6px;
+      margin-bottom: 12px;
+      opacity: 0.5;
+    }
+
+    .footer-copy {
+      font-size: 12px;
+      color: var(--muted);
+      letter-spacing: 1px;
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 600px) {
+      .perm-table th:last-child,
+      .perm-table td:last-child { display: none; }
+      .child-safe { flex-direction: column; }
+    }
+  </style>
 </head>
 <body>
-  <h1>OffGridMsg Gizlilik Politikası</h1>
-  <p><strong>Son güncelleme:</strong> Mayıs 2026</p>
 
-  <p>OffGridMsg uygulaması, kullanıcılardan hiçbir kişisel 
-  veri toplamamakta, işlememekte veya üçüncü taraflarla 
-  paylaşmamaktadır.</p>
+<header>
+  <div class="logo-morse">· · · — — — · · ·</div>
+  <div class="app-name">OffGridMsg</div>
+  <div class="page-title">Gizlilik Politikası</div>
+  <div class="last-updated">Son Güncelleme: Mayıs 2026 · v1.0</div>
+</header>
 
-  <h2>Toplanan Veriler</h2>
-  <p>Uygulama tamamen çevrimdışı çalışır. 
-  Sunucu bağlantısı yoktur. Hiçbir analitik SDK kullanılmamaktadır.</p>
+<div class="container">
 
-  <h2>İzinler</h2>
-  <ul>
-    <li><strong>CAMERA</strong> — Yalnızca flaş LED kontrolü için</li>
-    <li><strong>VIBRATE</strong> — Titreşim modu için</li>
-  </ul>
+  <div class="alert">
+    <strong>⚠ Önemli Not:</strong> Bu uygulama resmi acil servisler (112, 155, 156 vb.) için bir
+    alternatif değildir. Gerçek bir acil durumda lütfen önce resmi yardım hatlarını arayın.
+  </div>
 
-  <h2>İletişim</h2>
-  <p>temcom.dev@gmail.com</p>
-</body>
-</html>
+  <div class="badge-row">
+    <span class="badge active">GDPR Uyumlu</span>
+    <span class="badge active">KVKK Uyumlu</span>
+    <span class="badge active">COPPA Uyumlu</span>
+    <span class="badge active">Google Play Politikası</span>
+    <span class="badge active">13 Yaş + Kısıtlama</span>
+    <span class="badge active">Veri Toplamıyor</span>
+  </div>
+
+  <!-- ── 1. GİRİŞ ── -->
+  <section>
+    <div class="section-num">// 01</div>
+    <h2>Bu Politika Hakkında</h2>
+    <p>
+      Bu Gizlilik Politikası, <strong style="color:var(--gold)">We Are TEMCOM</strong> tarafından
+      geliştirilen <strong style="color:var(--gold)">OffGridMsg</strong> mobil uygulamasının
+      kullanıcı verilerini nasıl ele aldığını açıklamaktadır. Avrupa Birliği Genel Veri Koruma
+      Tüzüğü (GDPR), Türkiye Kişisel Verilerin Korunması Kanunu (KVKK — 6698 sayılı Kanun),
+      ABD Çocukların Çevrimiçi Gizliliğini Koruma Yasası (COPPA) ve Google Play Geliştirici
+      Politikaları çerçevesinde hazırlanmıştır.
+    </p>
+    <p>
+      Uygulamayı indirerek veya kullanarak bu politikayı kabul etmiş sayılırsınız. Kabul etmiyorsanız
+      lütfen uygulamayı kullanmayınız.
+    </p>
+  </section>
+
+  <!-- ── 2. VERİ TOPLAMA ── -->
+  <section>
+    <div class="section-num">// 02</div>
+    <h2>Toplanan Veriler — Kısa Cevap: Hiçbir Şey</h2>
+
+    <div class="no-data-box">
+      <span class="icon">🔒</span>
+      <strong>SIFIR VERİ POLİTİKASI</strong>
+      <p>
+        OffGridMsg hiçbir kişisel veri toplamaz, işlemez, depolamaz veya üçüncü
+        taraflarla paylaşmaz. Uygulama tamamen çevrimdışı çalışır; sunucu bağlantısı,
+        analitik SDK veya reklam kütüphanesi içermez.
+      </p>
+    </div>
+
+    <p>Spesifik olarak şunlar <strong style="color:var(--gold)">kesinlikle toplanmaz:</strong></p>
+    <ul class="rights-list">
+      <li>Ad, soyad, e-posta, telefon numarası</li>
+      <li>Konum bilgisi (GPS veya ağ tabanlı)</li>
+      <li>Cihaz kimliği, reklam kimliği (GAID/IDFA)</li>
+      <li>Yazdığınız mesajlar veya Mors kodu çıktıları</li>
+      <li>Kullanım istatistikleri, oturum süresi, tıklama verileri</li>
+      <li>Kamera görüntüsü veya fotoğraf/video</li>
+      <li>Çerezler veya izleme pikselleri</li>
+    </ul>
+  </section>
+
+  <!-- ── 3. İZİNLER ── -->
+  <section>
+    <div class="section-num">// 03</div>
+    <h2>Android İzinleri ve Kullanım Amacı</h2>
+    <p>
+      Uygulama yalnızca temel işlevini yerine getirmek için gereken minimum izinleri talep eder.
+      Aşağıda her izin ve yalnızca bunun için neden gerektiği açıklanmıştır:
+    </p>
+
+    <table class="perm-table">
+      <thead>
+        <tr>
+          <th>İzin</th>
+          <th>Kullanım Amacı</th>
+          <th>Veri Toplanıyor mu?</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><span class="perm-name">CAMERA</span></td>
+          <td>
+            Yalnızca kameranın arka LED flaşını (el feneri) kontrol etmek için kullanılır.
+            Fotoğraf veya video çekilmez, görüntü işlenmez, kamera önizlemesi açılmaz.
+          </td>
+          <td style="color:var(--gold);font-family:'Share Tech Mono',monospace">HAYIR</td>
+        </tr>
+        <tr>
+          <td><span class="perm-name">VIBRATE</span></td>
+          <td>
+            Titreşim modu seçildiğinde Mors sinyal dizisini titreşim motoruyla çalmak için kullanılır.
+          </td>
+          <td style="color:var(--gold);font-family:'Share Tech Mono',monospace">HAYIR</td>
+        </tr>
+        <tr>
+          <td><span class="perm-name">INTERNET</span></td>
+          <td>
+            Bu izin talep edilmez. Uygulama internet bağlantısı gerektirmez ve kullanmaz.
+          </td>
+          <td style="color:var(--gold);font-family:'Share Tech Mono',monospace">HAYIR</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p style="font-size:13px;color:var(--muted);">
+      Google Play, CAMERA iznini hassas izin olarak sınıflandırır. Bu nedenle Play Console'daki
+      "İzin Açıklaması" alanında yukarıdaki bilgi birebir beyan edilmiştir.
+    </p>
+  </section>
+
+  <!-- ── 4. ÇOCUK GÜVENLİĞİ ── -->
+  <section>
+    <div class="section-num">// 04</div>
+    <h2>Çocukların Gizliliği ve Yaş Sınırı</h2>
+
+    <div class="child-safe">
+      <span class="cs-icon">🚸</span>
+      <div class="cs-text">
+        <strong>OffGridMsg 13 Yaşın Altındaki Çocuklara Yönelik Değildir</strong>
+        <p>
+          Uygulama, Google Play'de "Herkes (Tüm Yaşlar)" içerik derecelendirmesiyle yayınlanmış
+          olmakla birlikte, birincil hedef kitlesi yetişkinler ve acil durum hazırlığıyla ilgilenen
+          bireylerdir. 13 yaş altındaki çocuklardan bilerek hiçbir veri toplanmaz.
+        </p>
+      </div>
+    </div>
+
+    <h3>COPPA Uyumu (ABD)</h3>
+    <p>
+      ABD Çocukların Çevrimiçi Gizliliğini Koruma Yasası (COPPA) kapsamında, 13 yaş altı
+      çocuklardan veri toplamıyoruz. Bir ebeveyn veya vasi, çocuğunun uygulamayı kullandığını
+      fark ederse aşağıdaki iletişim adresimizden bizimle iletişime geçebilir. Ancak
+      uygulamada hiçbir veri depolanmadığından silinecek bir veri de bulunmamaktadır.
+    </p>
+
+    <h3>Brezilya ECA (Digital Statute)</h3>
+    <p>
+      Brezilya'nın Dijital Çocuk ve Ergen Tüzüğü (Digital ECA, Mart 2026) kapsamında uygulama,
+      çocuklara veya gençlere yönelik içerik sunmamakta; loot box veya kumar mekanizması
+      içermemektedir. Play Age Signals API kullanımı değerlendirilmektedir.
+    </p>
+
+    <h3>Kore MOGEF</h3>
+    <p>
+      Uygulama, Kore Kadın ve Aile Bakanlığı (MOGEF) tarafından "gençlere zararlı" olarak
+      sınıflandırılabilecek herhangi bir içerik barındırmamaktadır.
+    </p>
+  </section>
+
+  <!-- ── 5. GDPR ── -->
+  <section>
+    <div class="section-num">// 05</div>
+    <h2>GDPR — Avrupa Birliği Kullanıcıları</h2>
+    <p>
+      Avrupa Birliği Genel Veri Koruma Tüzüğü (Tüzük 2016/679 — GDPR) kapsamında veri sorumlusu
+      sıfatıyla hareket etmekteyiz. Uygulama kişisel veri işlemediğinden GDPR'ın Madde 13 ve 14
+      kapsamındaki bildirim yükümlülükleri büyük ölçüde geçersizdir. Bununla birlikte aşağıdaki
+      haklarınız saklıdır:
+    </p>
+
+    <ul class="rights-list">
+      <li><strong>Erişim Hakkı (Madde 15):</strong> Verilerinize erişim talep edebilirsiniz. (İşlenen veri yoktur.)</li>
+      <li><strong>Silme Hakkı (Madde 17):</strong> Verilerinizin silinmesini talep edebilirsiniz. (Saklanmış veri yoktur.)</li>
+      <li><strong>Düzeltme Hakkı (Madde 16):</strong> Yanlış verilerin düzeltilmesini talep edebilirsiniz.</li>
+      <li><strong>İşlemeye İtiraz (Madde 21):</strong> Veri işlemeye itiraz edebilirsiniz. (İşleme yapılmamaktadır.)</li>
+      <li><strong>Şikâyet Hakkı:</strong> Ülkenizdeki veri koruma otoritesine şikâyette bulunabilirsiniz.</li>
+    </ul>
+
+    <p>
+      AB'nin Coğrafi Engelleme Tüzüğü (AB) 2018/302 kapsamında uygulamamız, AB içindeki
+      kullanıcıları uyruklarına, ikamet yerlerine veya işyerlerine göre haksız biçimde
+      ayırt etmez. Uygulama AB genelinde erişilebilir durumdadır.
+    </p>
+  </section>
+
+  <!-- ── 6. KVKK ── -->
+  <section>
+    <div class="section-num">// 06</div>
+    <h2>KVKK — Türkiye Kullanıcıları</h2>
+    <p>
+      6698 sayılı Kişisel Verilerin Korunması Kanunu kapsamında veri sorumlusu sıfatını taşımaktayız.
+      Kanunun 10. maddesi gereği aşağıdaki bilgileri açıklamak zorundayız:
+    </p>
+
+    <ul class="rights-list">
+      <li><strong>Veri Sorumlusunun Kimliği:</strong> We Are TEMCOM — Mustafa Temur</li>
+      <li><strong>Kişisel Verilerin İşlenme Amacı:</strong> Kişisel veri işlenmemektedir.</li>
+      <li><strong>Kişisel Verilerin Aktarıldığı Taraflar:</strong> Veri aktarımı yapılmamaktadır.</li>
+      <li><strong>Kişisel Veri Toplamanın Yöntemi ve Hukuki Sebebi:</strong> Veri toplanmamaktadır.</li>
+    </ul>
+
+    <p>KVKK Madde 11 kapsamındaki haklarınız:</p>
+    <ul class="rights-list">
+      <li>Kişisel verilerinizin işlenip işlenmediğini öğrenme</li>
+      <li>İşlenmişse buna ilişkin bilgi talep etme</li>
+      <li>İşlenme amacını ve amacına uygun kullanılıp kullanılmadığını öğrenme</li>
+      <li>Yurt içinde veya yurt dışında aktarıldığı üçüncü kişileri bilme</li>
+      <li>Eksik veya yanlış işlenmiş olması hâlinde bunların düzeltilmesini isteme</li>
+      <li>Silinmesini veya yok edilmesini isteme</li>
+      <li>Yukarıdaki işlemlerin verilerin aktarıldığı üçüncü kişilere bildirilmesini isteme</li>
+      <li>Aleyhine bir sonucun ortaya çıkmasına itiraz etme</li>
+      <li>Zararın giderilmesini talep etme</li>
+    </ul>
+  </section>
+
+  <!-- ── 7. ÜÇÜNCÜ TARAF ── -->
+  <section>
+    <div class="section-num">// 07</div>
+    <h2>Üçüncü Taraf Hizmetler ve SDK'lar</h2>
+
+    <div class="no-data-box">
+      <span class="icon">🚫</span>
+      <strong>ÜÇÜNCÜ TARAF SDK KULLANILMIYOR</strong>
+      <p>
+        Uygulama; reklam ağı, analitik SDK (Firebase, Amplitude, Mixpanel vb.),
+        çökme raporlama kütüphanesi veya sosyal oturum açma entegrasyonu içermez.
+        Veri toplayan hiçbir bileşen mevcut değildir.
+      </p>
+    </div>
+  </section>
+
+  <!-- ── 8. VERİ GÜVENLİĞİ ── -->
+  <section>
+    <div class="section-num">// 08</div>
+    <h2>Veri Güvenliği</h2>
+    <p>
+      İşlenen veri olmadığından geleneksel anlamda bir veri güvenliği mimarisi söz konusu değildir.
+      Bununla birlikte uygulama şu güvenlik ilkelerini benimser:
+    </p>
+    <ul class="rights-list">
+      <li>Tüm işlevler cihaz içinde yürütülür; ağ trafiği başlatılmaz.</li>
+      <li>Kullanıcının yazdığı mesajlar belleğe geçici olarak alınır, diske yazılmaz ve uygulama kapatıldığında silinir.</li>
+      <li>Minimum izin prensibi uygulanır; yalnızca zorunlu Android izinleri talep edilir.</li>
+    </ul>
+  </section>
+
+  <!-- ── 9. POLİTİKA DEĞİŞİKLİKLERİ ── -->
+  <section>
+    <div class="section-num">// 09</div>
+    <h2>Politika Değişiklikleri</h2>
+    <p>
+      Bu politikayı zaman zaman güncelleyebiliriz. Önemli değişiklikler olması durumunda
+      bu sayfanın üstündeki "Son Güncelleme" tarihini değiştireceğiz. Politikayı periyodik
+      olarak gözden geçirmenizi tavsiye ederiz. Değişiklikten sonra uygulamayı kullanmaya
+      devam etmeniz yeni politikayı kabul ettiğiniz anlamına gelir.
+    </p>
+  </section>
+
+  <!-- ── 10. İLETİŞİM ── -->
+  <section>
+    <div class="section-num">// 10</div>
+    <h2>İletişim ve Hak Kullanımı</h2>
+    <p>
+      Bu politikayla ilgili sorularınız, GDPR/KVKK kapsamındaki hak talepleriniz veya
+      çocuk gizliliğine ilişkin bildirimleriniz için:
+    </p>
+
+    <div class="contact-card">
+      <div class="label">Geliştirici</div>
+      <div class="value" style="margin-bottom:16px">We Are TEMCOM — Mustafa Temur</div>
+
+      <div class="label">E-posta</div>
+      <div class="value" style="margin-bottom:16px">
+        <a href="mailto: temcom.dev@gmail.com">temcom.dev@gmail.com</a>
+      </di
