@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gizlilik Politikası - SonicScope Pro: Ses Analizörü</title>
+    <style>
+        :root {
+            --bg-color: #0f172a;
+            --card-bg: #1e293b;
+            --text-color: #cbd5e1;
+            --text-main: #f8fafc;
+            --accent-color: #38bdf8;
+            --border-color: #334155;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 40px 20px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: var(--card-bg);
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            border: 1px solid var(--border-color);
+        }
+
+        h1 {
+            color: var(--text-main);
+            font-size: 2.2rem;
+            margin-bottom: 5px;
+            border-bottom: 2px solid var(--accent-color);
+            padding-bottom: 15px;
+        }
+
+        h2 {
+            color: var(--text-main);
+            font-size: 1.4rem;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+
+        h2::before {
+            content: "•";
+            color: var(--accent-color);
+            font-weight: bold;
+            display: inline-block;
+            width: 1em;
+            margin-left: -0.5em;
+        }
+
+        p, li {
+            color: var(--text-color);
+            font-size: 1.05rem;
+        }
+
+        ul {
+            padding-left: 20px;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+
+        .highlight {
+            color: var(--accent-color);
+            font-weight: 600;
+        }
+
+        .footer {
+            margin-top: 40px;
+            text-align: center;
+            font-size: 0.9rem;
+            color: #64748b;
+            border-top: 1px solid var(--border-color);
+            padding-top: 20px;
+        }
+
+        .date {
+            font-style: italic;
+            color: #64748b;
+            margin-bottom: 30px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Gizlilik Politikası</h1>
+    <div class="date">Son Güncelleme: 7 Haziran 2026</div>
+
+    <p><span class="highlight">SonicScope Pro: Ses Analizörü</span> uygulaması, Mustafa TEMUR tarafından geliştirilmiş profesyonel bir mobil ses spektrum analizörüdür. Bu gizlilik politikası, uygulamamızı kullanırken kişisel verilerinizin nasıl işlendiği (veya işlenmediği) hakkında sizi bilgilendirmek amacıyla hazırlanmıştır.</p>
+    
+    <p>Uygulamamızı kullanarak, bu politikada belirtilen esasları kabul etmiş sayılarsınız.</p>
+
+    <h2>1. Toplanan Veriler ve İzinler</h2>
+    <p>SonicScope Pro, kullanıcı gizliliğine azami önem verir. Uygulamanın temel işlevlerini yerine getirebilmesi için cihazınızda yalnızca aşağıdaki izin ve erişimler kullanılır:</p>
+    <ul>
+        <li><span class="highlight">Mikrofon Erişimi (Ses Kaydedici):</span> Çevrenizdeki gerçek sesleri analiz etmek, frekans spektrumunu, FFT sinyal işlemeyi, peak/nota algılamayı ve osiloskop verilerini anlık olarak hesaplamak için mikrofon erişimi gereklidir.</li>
+        <li><span class="highlight">Yerel Depolama:</span> Kullanıcının kendi isteğiyle tetiklediği "Anlık Snapshot (Görsel Kayıt)" özelliğinin, analiz edilen ekran görüntülerini cihazın yerel hafızasına (galeri veya uygulama dizini) kaydedebilmesi için kullanılır.</li>
+    </ul>
+
+    <h2>2. Veri Güvenliği ve Gizlilik Sorumluluğu</h2>
+    <p>SonicScope Pro, <span class="highlight">"Gizlilik Odaklı Tasarım" (Privacy by Design)</span> prensibiyle geliştirilmiştir:</p>
+    <ul>
+        <li><strong>Ses Kayıtları Saklanmaz:</strong> Mikrofon aracılığıyla alınan ses sinyalleri, milisaniyeler seviyesinde Jetpack Compose ve Android sinyal işleme motoru tarafından tamamen <span class="highlight">anlık (real-time)</span> olarak işlenir. Ses verileriniz hiçbir şekilde kaydedilmez, cihazda depolanmaz veya harici bir sunucuya gönderilmez.</li>
+        <li><strong>Kişisel Veri Toplanmaz:</strong> Adınız, e-posta adresiniz, konumunuz veya cihaz kimliğiniz gibi hiçbir kişisel veya tanımlayıcı veri tarafımızca toplanmaz, işlenmez ve üçüncü taraflarla paylaşılmaz.</li>
+    </ul>
+
+    <h2>3. Üçüncü Taraf Hizmetleri</h2>
+    <p>Uygulama, verilerinizi izleyen, reklam hedeflemesi yapan veya analitik veri toplayan hiçbir gizli üçüncü taraf SDK veya izleme (tracker) yazılımı barındırmaz. Tüm sinyal üretimi (Sinüs, Kare, vb.) ve FFT analiz süreçleri cihazınızın donanımı üzerinde yerel olarak yürütülür.</p>
+
+    <h2>4. Çocukların Gizliliği</h2>
+    <p>Uygulamamız hiçbir kişisel veri toplamadığı için, çocukların gizliliğini ihlal edecek herhangi bir unsur barındırmamaktadır. Her yaş grubundan kullanıcı güvenle kullanabilir.</p>
+
+    <h2>5. Politikada Yapılacak Değişiklikler</h2>
+    <p>Bu gizlilik politikası zaman zaman güncellenebilir. Herhangi bir değişiklik durumunda, yeni politika bu sayfa üzerinden "Son Güncelleme" tarihi değiştirilerek yayınlanacaktır. Değişikliklerden haberdar olmak için bu sayfayı periyodik olarak gözden geçirmeniz önerilir.</p>
+
+    <h2>6. İletişim</h2>
+    <p>Bu gizlilik politikası veya SonicScope Pro uygulaması ile ilgili her türlü soru, görüş ve geri bildirimleriniz için geliştirici ile doğrudan iletişime geçebilirsiniz:</p>
+    <ul>
+        <li><strong>Geliştirici:</strong> Mustafa TEMUR</li>
+        <li><strong>GitHub:</strong> <a href="https://github.com/mustafatemur" style="color: var(--accent-color); text-decoration: none;" target="_blank">github.com/mustafatemur</a></li>
+    </ul>
+
+    <div class="footer">
+        © 2026 SonicScope Pro. Tüm hakları saklıdır.
+    </div>
+</div>
+
+</body>
+</html>
