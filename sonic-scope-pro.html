@@ -1,142 +1,310 @@
 <!DOCTYPE html>
-<html lang="tr">
+<html lang="tr" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gizlilik Politikası - SonicScope Pro: Ses Analizörü</title>
-    <style>
-        :root {
-            --bg-color: #0f172a;
-            --card-bg: #1e293b;
-            --text-color: #cbd5e1;
-            --text-main: #f8fafc;
-            --accent-color: #38bdf8;
-            --border-color: #334155;
+    <title>SonicScope Pro - Gizlilik Politikası</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            50: '#f0f9ff',
+                            100: '#e0f2fe',
+                            500: '#0ea5e9',
+                            600: '#0284c7',
+                            700: '#0369a1',
+                            900: '#0c4a6e',
+                        }
+                    }
+                }
+            }
         }
-
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            line-height: 1.6;
-            background-color: var(--bg-color);
-            color: var(--text-color);
-            margin: 0;
-            padding: 40px 20px;
-        }
-
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-            background: var(--card-bg);
-            padding: 40px;
-            border-radius: 12px;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-            border: 1px solid var(--border-color);
-        }
-
-        h1 {
-            color: var(--text-main);
-            font-size: 2.2rem;
-            margin-bottom: 5px;
-            border-bottom: 2px solid var(--accent-color);
-            padding-bottom: 15px;
-        }
-
-        h2 {
-            color: var(--text-main);
-            font-size: 1.4rem;
-            margin-top: 30px;
-            margin-bottom: 15px;
-            display: flex;
-            align-items: center;
-        }
-
-        h2::before {
-            content: "•";
-            color: var(--accent-color);
-            font-weight: bold;
-            display: inline-block;
-            width: 1em;
-            margin-left: -0.5em;
-        }
-
-        p, li {
-            color: var(--text-color);
-            font-size: 1.05rem;
-        }
-
-        ul {
-            padding-left: 20px;
-        }
-
-        li {
-            margin-bottom: 8px;
-        }
-
-        .highlight {
-            color: var(--accent-color);
-            font-weight: 600;
-        }
-
-        .footer {
-            margin-top: 40px;
-            text-align: center;
-            font-size: 0.9rem;
-            color: #64748b;
-            border-top: 1px solid var(--border-color);
-            padding-top: 20px;
-        }
-
-        .date {
-            font-style: italic;
-            color: #64748b;
-            margin-bottom: 30px;
+    </script>
+    <style type="text/css">
+        /* Yazdırma Esnasında Sayfayı Resmi Belgeye Dönüştüren Sihirli CSS */
+        @media print {
+            body {
+                background: white !important;
+                color: black !important;
+                font-size: 12pt;
+            }
+            .no-print {
+                display: none !important;
+            }
+            .print-content {
+                width: 100% !important;
+                margin: 0 !important;
+                padding: 0 !important;
+            }
+            a {
+                text-decoration: underline !important;
+                color: black !important;
+            }
         }
     </style>
 </head>
-<body>
+<body class="bg-slate-50 text-slate-800 dark:bg-slate-900 dark:text-slate-200 min-h-screen transition-colors duration-300 font-sans">
 
-<div class="container">
-    <h1>Gizlilik Politikası</h1>
-    <div class="date">Son Güncelleme: 7 Haziran 2026</div>
+    <!-- Üst Bar / Header -->
+    <header class="sticky top-0 z-40 w-full backdrop-blur flex-none transition-colors duration-500 lg:z-50 border-b border-slate-900/10 dark:border-slate-50/[0.06] bg-white/80 dark:bg-slate-900/80 no-print">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <!-- Logo & Marka -->
+                <div class="flex items-center space-x-3">
+                    <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-brand-600 to-emerald-500 flex items-center justify-center shadow-lg shadow-brand-500/20">
+                        <!-- Spektrum Dalga SVG Logosu -->
+                        <svg class="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M9 19V6l12-3v13M9 19c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zm12-3c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zM9 10l12-3" />
+                        </svg>
+                    </div>
+                    <div>
+                        <span class="font-bold text-lg tracking-tight bg-gradient-to-r from-brand-600 to-emerald-500 bg-clip-text text-transparent dark:from-brand-500 dark:to-emerald-400">SonicScope Pro</span>
+                        <span class="hidden sm:inline-block ml-2 px-2 py-0.5 text-xs font-semibold rounded bg-slate-100 dark:bg-slate-800 text-slate-500">Legal</span>
+                    </div>
+                </div>
 
-    <p><span class="highlight">SonicScope Pro: Ses Analizörü</span> uygulaması, Mustafa TEMUR tarafından geliştirilmiş profesyonel bir mobil ses spektrum analizörüdür. Bu gizlilik politikası, uygulamamızı kullanırken kişisel verilerinizin nasıl işlendiği (veya işlenmediği) hakkında sizi bilgilendirmek amacıyla hazırlanmıştır.</p>
-    
-    <p>Uygulamamızı kullanarak, bu politikada belirtilen esasları kabul etmiş sayılarsınız.</p>
+                <!-- Sağ Butonlar -->
+                <div class="flex items-center space-x-4">
+                    <!-- Tema Değiştirici -->
+                    <button id="theme-toggle" class="p-2 rounded-lg bg-slate-100 dark:bg-slate-800 hover:ring-2 hover:ring-brand-500 transition-all" aria-label="Temayı Değiştir">
+                        <!-- Sun Icon -->
+                        <svg id="theme-toggle-light-icon" class="hidden w-5 h-5 text-amber-500" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464a1 1 0 10-1.414 1.414l.707.707a1 1 0 001.414-1.414l-.707-.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 100 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path>
+                        </svg>
+                        <!-- Moon Icon -->
+                        <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5 text-slate-500 dark:text-slate-400" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
+                        </svg>
+                    </button>
+                    <!-- Yazdır Butonu -->
+                    <button onclick="window.print()" class="hidden md:inline-flex items-center px-4 py-2 text-sm font-medium text-white bg-brand-600 hover:bg-brand-700 rounded-lg transition-colors shadow-md shadow-brand-500/10">
+                        <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z" />
+                        </svg>
+                        Yazdır / PDF Kaydet
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
 
-    <h2>1. Toplanan Veriler ve İzinler</h2>
-    <p>SonicScope Pro, kullanıcı gizliliğine azami önem verir. Uygulamanın temel işlevlerini yerine getirebilmesi için cihazınızda yalnızca aşağıdaki izin ve erişimler kullanılır:</p>
-    <ul>
-        <li><span class="highlight">Mikrofon Erişimi (Ses Kaydedici):</span> Çevrenizdeki gerçek sesleri analiz etmek, frekans spektrumunu, FFT sinyal işlemeyi, peak/nota algılamayı ve osiloskop verilerini anlık olarak hesaplamak için mikrofon erişimi gereklidir.</li>
-        <li><span class="highlight">Yerel Depolama:</span> Kullanıcının kendi isteğiyle tetiklediği "Anlık Snapshot (Görsel Kayıt)" özelliğinin, analiz edilen ekran görüntülerini cihazın yerel hafızasına (galeri veya uygulama dizini) kaydedebilmesi için kullanılır.</li>
-    </ul>
+    <!-- Ana Konteyner -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 print-content">
+        <!-- Başlık Bölümü -->
+        <div class="text-center mb-12 pb-8 border-b border-slate-200 dark:border-slate-800">
+            <h1 class="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">Gizlilik Politikası</h1>
+            <p class="mt-3 text-slate-500 dark:text-slate-400 max-w-2xl mx-auto">
+                SonicScope Pro, "Gizlilik Odaklı Tasarım" (Privacy by Design) prensibiyle geliştirilmiştir. Verilerinizin nasıl güvende tutulduğunu öğrenin.
+            </p>
+            <div class="mt-4 inline-flex items-center text-xs font-semibold px-3 py-1 rounded-full bg-emerald-50 text-emerald-700 dark:bg-emerald-900/30 dark:text-emerald-400">
+                <span class="w-2 h-2 rounded-full bg-emerald-500 mr-2 animate-pulse"></span>
+                Son Güncelleme: 7 Haziran 2026
+            </div>
+        </div>
 
-    <h2>2. Veri Güvenliği ve Gizlilik Sorumluluğu</h2>
-    <p>SonicScope Pro, <span class="highlight">"Gizlilik Odaklı Tasarım" (Privacy by Design)</span> prensibiyle geliştirilmiştir:</p>
-    <ul>
-        <li><strong>Ses Kayıtları Saklanmaz:</strong> Mikrofon aracılığıyla alınan ses sinyalleri, milisaniyeler seviyesinde Jetpack Compose ve Android sinyal işleme motoru tarafından tamamen <span class="highlight">anlık (real-time)</span> olarak işlenir. Ses verileriniz hiçbir şekilde kaydedilmez, cihazda depolanmaz veya harici bir sunucuya gönderilmez.</li>
-        <li><strong>Kişisel Veri Toplanmaz:</strong> Adınız, e-posta adresiniz, konumunuz veya cihaz kimliğiniz gibi hiçbir kişisel veya tanımlayıcı veri tarafımızca toplanmaz, işlenmez ve üçüncü taraflarla paylaşılmaz.</li>
-    </ul>
+        <div class="grid grid-cols-1 lg:grid-cols-4 gap-10">
+            <!-- Sol Sütun: Navigasyon (Masaüstü için Sabit) -->
+            <aside class="lg:col-span-1 no-print">
+                <nav class="sticky top-24 space-y-2">
+                    <p class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-3">Hızlı Navigasyon</p>
+                    <a href="#sorumluluk" class="block px-3 py-2 text-sm font-medium rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors text-brand-600 dark:text-brand-400">1. Veri Sorumlusu</a>
+                    <a href="#izinler" class="block px-3 py-2 text-sm font-medium rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors text-slate-600 dark:text-slate-400">2. İzinler & Sinyal İşleme</a>
+                    <a href="#ucuncu-taraf" class="block px-3 py-2 text-sm font-medium rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors text-slate-600 dark:text-slate-400">3. Üçüncü Taraf SDK’lar</a>
+                    <a href="#cocuk-gizliligi" class="block px-3 py-2 text-sm font-medium rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors text-slate-600 dark:text-slate-400">4. Çocukların Gizliliği</a>
+                    <a href="#degisiklikler" class="block px-3 py-2 text-sm font-medium rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors text-slate-600 dark:text-slate-400">5. Politikada Güncellemeler</a>
+                    <a href="#iletisim" class="block px-3 py-2 text-sm font-medium rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors text-slate-600 dark:text-slate-400">6. Yasal İletişim</a>
+                </nav>
+            </aside>
 
-    <h2>3. Üçüncü Taraf Hizmetleri</h2>
-    <p>Uygulama, verilerinizi izleyen, reklam hedeflemesi yapan veya analitik veri toplayan hiçbir gizli üçüncü taraf SDK veya izleme (tracker) yazılımı barındırmaz. Tüm sinyal üretimi (Sinüs, Kare, vb.) ve FFT analiz süreçleri cihazınızın donanımı üzerinde yerel olarak yürütülür.</p>
+            <!-- Sağ Sütun: Yasal Metin İçeriği -->
+            <article class="lg:col-span-3 prose prose-slate dark:prose-invert max-w-none space-y-8 text-base leading-relaxed print-content">
+                
+                <p class="text-lg text-slate-600 dark:text-slate-300">
+                    <strong>SonicScope Pro: Ses Analizörü</strong> mobil uygulaması ("Uygulama"), geliştirici <strong>Mustafa TEMUR</strong> tarafından sunulan profesyonel seviyede bir ses analiz aracıdır. Bu metin, uygulamayı indirip cihazınızda çalıştırdığınız andan itibaren, gizlilik haklarınızın ve teknik veri işleme süreçlerinin yasal sınırlarını çizmek amacıyla hazırlanmıştır.
+                </p>
 
-    <h2>4. Çocukların Gizliliği</h2>
-    <p>Uygulamamız hiçbir kişisel veri toplamadığı için, çocukların gizliliğini ihlal edecek herhangi bir unsur barındırmamaktadır. Her yaş grubundan kullanıcı güvenle kullanabilir.</p>
+                <!-- Madde 1 -->
+                <section id="sorumluluk" class="scroll-mt-20 pt-4">
+                    <h2 class="text-xl font-bold text-slate-900 dark:text-white flex items-center mb-3">
+                        <span class="flex items-center justify-center w-8 h-8 rounded-lg bg-brand-100 dark:bg-brand-900/40 text-brand-600 dark:text-brand-400 mr-3 text-sm font-bold">1</span>
+                        Veri Sorumlusu ve Temel Prensip
+                    </h2>
+                    <div class="pl-0 sm:pl-11 text-slate-600 dark:text-slate-300 space-y-3">
+                        <p>
+                            SonicScope Pro, her şeyden önce kullanıcı mahremiyetini merkeze alır. Uygulamanın temel felsefesi <strong>"Gizlilik Odaklı Tasarım" (Privacy by Design)</strong> üzerine kuruludur.
+                        </p>
+                        <p class="border-l-4 border-brand-500 pl-4 py-1 bg-brand-50/50 dark:bg-brand-950/20 rounded-r-lg">
+                            <strong>Kişisel Veri Depolamama Sözü:</strong> Uygulama, hiçbir kişisel bilginizi (isim, e-posta, benzersiz cihaz kimliği IP adresi vb.) toplamaz, sunucularında barındırmaz, işlemez ve hiçbir reklam ağı veya veri simsarı ile paylaşmaz.
+                        </p>
+                    </div>
+                </section>
 
-    <h2>5. Politikada Yapılacak Değişiklikler</h2>
-    <p>Bu gizlilik politikası zaman zaman güncellenebilir. Herhangi bir değişiklik durumunda, yeni politika bu sayfa üzerinden "Son Güncelleme" tarihi değiştirilerek yayınlanacaktır. Değişikliklerden haberdar olmak için bu sayfayı periyodik olarak gözden geçirmeniz önerilir.</p>
+                <!-- Madde 2 -->
+                <section id="izinler" class="scroll-mt-20 pt-4">
+                    <h2 class="text-xl font-bold text-slate-900 dark:text-white flex items-center mb-3">
+                        <span class="flex items-center justify-center w-8 h-8 rounded-lg bg-brand-100 dark:bg-brand-900/40 text-brand-600 dark:text-brand-400 mr-3 text-sm font-bold">2</span>
+                        Cihaz İzinleri ve Teknik Sinyal İşleme Sınırları
+                    </h2>
+                    <div class="pl-0 sm:pl-11 text-slate-600 dark:text-slate-300 space-y-4">
+                        <p>
+                            Uygulamanın çalışabilmesi için işletim sistemi seviyesinde izin verilen aşağıdaki iki ana donanımsal yeteneğe erişmesi gereklidir:
+                        </p>
+                        
+                        <div class="bg-white dark:bg-slate-800/50 rounded-xl p-5 border border-slate-100 dark:border-slate-800 shadow-sm">
+                            <h3 class="font-bold text-slate-900 dark:text-white flex items-center mb-2">
+                                <span class="w-2.5 h-2.5 rounded-full bg-rose-500 mr-2.5"></span>
+                                Ses Kaydedici / Mikrofon Erişimi (RECORD_AUDIO)
+                            </h3>
+                            <p class="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
+                                <strong>Kullanım Amacı:</strong> Ortamdaki sesleri yakalamak, FFT (Hızlı Fourier Dönüşümü) motoru vasıtasıyla spektrum, bar, şelale sonogramı ve ham osiloskop dalgalarını milisaniyeler seviyesinde hesaplamak.
+                            </p>
+                            <p class="text-sm text-slate-600 dark:text-slate-400 mt-2 font-medium text-emerald-600 dark:text-emerald-400">
+                                🔒 Teknik Güvence: Alınan tüm akustik dalga sinyalleri sadece cihazın geçici RAM hafızasında float array formatında işlenir ve doğrudan ekrana çizdirilir. Bu veriler diske kaydedilmez veya harici ağlara gönderilmez.
+                            </p>
+                        </div>
 
-    <h2>6. İletişim</h2>
-    <p>Bu gizlilik politikası veya SonicScope Pro uygulaması ile ilgili her türlü soru, görüş ve geri bildirimleriniz için geliştirici ile doğrudan iletişime geçebilirsiniz:</p>
-    <ul>
-        <li><strong>Geliştirici:</strong> Mustafa TEMUR</li>
-        <li><strong>GitHub:</strong> <a href="https://github.com/mustafatemur" style="color: var(--accent-color); text-decoration: none;" target="_blank">github.com/mustafatemur</a></li>
-    </ul>
+                        <div class="bg-white dark:bg-slate-800/50 rounded-xl p-5 border border-slate-100 dark:border-slate-800 shadow-sm">
+                            <h3 class="font-bold text-slate-900 dark:text-white flex items-center mb-2">
+                                <span class="w-2.5 h-2.5 rounded-full bg-brand-500 mr-2.5"></span>
+                                Medya Depolama ve Snapshot Yönetimi (Scoped Storage)
+                            </h3>
+                            <p class="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
+                                <strong>Kullanım Amacı:</strong> Kullanıcının "Anlık Snapshot (Görsel Kayıt)" butonuna basması durumunda, o anki spektrum analiz ekran görüntüsünün galeriye kaydedilmesi.
+                            </p>
+                            <p class="text-sm text-slate-600 dark:text-slate-400 mt-2">
+                                🔒 Teknik Güvence: Uygulama, modern Android güvenlik yönergelerine (Scoped Storage / Korumalı Depolama) tam uyumludur. Cihazınızdaki diğer fotoğraflara veya belgelere asla erişmez, sadece kendi oluşturduğu PNG dosyasını medya kütüphanesine güvenle yazar.
+                            </p>
+                        </div>
+                    </div>
+                </section>
 
-    <div class="footer">
-        © 2026 SonicScope Pro. Tüm hakları saklıdır.
-    </div>
-</div>
+                <!-- Madde 3 -->
+                <section id="ucuncu-taraf" class="scroll-mt-20 pt-4">
+                    <h2 class="text-xl font-bold text-slate-900 dark:text-white flex items-center mb-3">
+                        <span class="flex items-center justify-center w-8 h-8 rounded-lg bg-brand-100 dark:bg-brand-900/40 text-brand-600 dark:text-brand-400 mr-3 text-sm font-bold">3</span>
+                        Üçüncü Taraf SDK, Reklam ve İzleyiciler (Trackers)
+                    </h2>
+                    <div class="pl-0 sm:pl-11 text-slate-600 dark:text-slate-300 space-y-3">
+                        <p>
+                            Birçok mobil uygulamanın aksine, SonicScope Pro içerisinde arka planda çalışan ve verilerinizi gizlice analiz eden harici kütüphaneler barındırmaz:
+                        </p>
+                        <ul class="list-disc pl-5 space-y-1.5 text-sm">
+                            <li>Reklam ağları (AdMob, Unity vb.) <strong>bulunmaz</strong>.</li>
+                            <li>Kullanıcı davranış takibi (Google Analytics, Firebase Analytics vb.) <strong>yapılmaz</strong>.</li>
+                            <li>Tüm ses sentezleme (Sinüs, Kare, Üçgen, vb.) ve FFT kütüphane işlemleri tamamen yerel cihaz işlemciniz tarafından yürütülür.</li>
+                        </ul>
+                    </div>
+                </section>
 
+                <!-- Madde 4 -->
+                <section id="cocuk-gizliligi" class="scroll-mt-20 pt-4">
+                    <h2 class="text-xl font-bold text-slate-900 dark:text-white flex items-center mb-3">
+                        <span class="flex items-center justify-center w-8 h-8 rounded-lg bg-brand-100 dark:bg-brand-900/40 text-brand-600 dark:text-brand-400 mr-3 text-sm font-bold">4</span>
+                        Çocukların Gizliliği (COPPA & GDPR Uyumu)
+                    </h2>
+                    <div class="pl-0 sm:pl-11 text-slate-600 dark:text-slate-300 space-y-3">
+                        <p>
+                            Uygulamamız hiçbir kimlik verisi veya kişisel bilgi toplamama prensibine sahip olduğundan, COPPA (Çocukların Çevrimiçi Gizliliğini Koruma Yasası) veya Avrupa Birliği GDPR standartlarını ihlal etmesi mümkün değildir. SonicScope Pro, her yaştan bilim, müzik ve akustik meraklısı tarafından güvenle kullanılabilir.
+                        </p>
+                    </div>
+                </section>
+
+                <!-- Madde 5 -->
+                <section id="degisiklikler" class="scroll-mt-20 pt-4">
+                    <h2 class="text-xl font-bold text-slate-900 dark:text-white flex items-center mb-3">
+                        <span class="flex items-center justify-center w-8 h-8 rounded-lg bg-brand-100 dark:bg-brand-900/40 text-brand-600 dark:text-brand-400 mr-3 text-sm font-bold">5</span>
+                        Politikada Yapılacak Değişiklikler
+                    </h2>
+                    <div class="pl-0 sm:pl-11 text-slate-600 dark:text-slate-300 space-y-3">
+                        <p>
+                            Google Play Store güncellemeleri, Android API seviye değişiklikleri veya yeni analiz modlarının eklenmesine bağlı olarak bu gizlilik politikası güncellenebilir. Herhangi bir değişiklik durumunda yeni sözleşme bu web adresi üzerinden "Son Güncelleme" tarihi yenilenerek doğrudan yayına alınacaktır.
+                        </p>
+                    </div>
+                </section>
+
+                <!-- Madde 6 -->
+                <section id="iletisim" class="scroll-mt-20 pt-4 border-t border-slate-200 dark:border-slate-800">
+                    <h2 class="text-xl font-bold text-slate-900 dark:text-white flex items-center mb-3">
+                        <span class="flex items-center justify-center w-8 h-8 rounded-lg bg-brand-100 dark:bg-brand-900/40 text-brand-600 dark:text-brand-400 mr-3 text-sm font-bold">6</span>
+                        İletişim ve Yasal Haklar
+                    </h2>
+                    <div class="pl-0 sm:pl-11 text-slate-600 dark:text-slate-300 space-y-4">
+                        <p>
+                            Uygulamanın gizlilik pratikleri veya kod mimarisi ile ilgili teknik sorularınız için geliştiriciyle doğrudan resmi kanallar üzerinden irtibata geçebilirsiniz.
+                        </p>
+                        
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <a href="mailto:temcom.dev@gmail.com" class="flex items-center p-4 rounded-xl bg-slate-100 dark:bg-slate-800 hover:ring-2 hover:ring-brand-500 transition-all group">
+                                <div class="w-10 h-10 rounded-lg bg-brand-500 flex items-center justify-center text-white mr-3">
+                                    <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                                    </svg>
+                                </div>
+                                <div>
+                                    <p class="text-xs text-slate-400 group-hover:text-brand-500 transition-colors">Resmi Geliştirici E-Posta</p>
+                                    <p class="text-sm font-bold text-slate-800 dark:text-slate-200">temcom.dev@gmail.com</p>
+                                </div>
+                            </a>
+
+                            <a href="https://github.com/mustafatemur" target="_blank" rel="noopener noreferrer" class="flex items-center p-4 rounded-xl bg-slate-100 dark:bg-slate-800 hover:ring-2 hover:ring-brand-500 transition-all group">
+                                <div class="w-10 h-10 rounded-lg bg-slate-700 dark:bg-slate-950 flex items-center justify-center text-white mr-3">
+                                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" />
+                                    </svg>
+                                </div>
+                                <div>
+                                    <p class="text-xs text-slate-400 group-hover:text-brand-500 transition-colors">Yazar / Açık Kaynak Profil</p>
+                                    <p class="text-sm font-bold text-slate-800 dark:text-slate-200">github.com/mustafatemur</p>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </section>
+
+            </article>
+        </div>
+    </main>
+
+    <!-- Sayfa Altı / Footer -->
+    <footer class="mt-20 border-t border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-950/50 py-8 no-print">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-xs text-slate-400">
+            <p>© 2026 SonicScope Pro. Tüm hakları saklıdır. Mustafa TEMUR tarafından geliştirilmiştir.</p>
+        </div>
+    </footer>
+
+    <!-- Tema Yönetim Scripti -->
+    <script>
+        const themeToggleBtn = document.getElementById('theme-toggle');
+        const themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
+        const themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
+
+        // Mevcut temayı yükle
+        if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark');
+            themeToggleLightIcon.classList.remove('hidden');
+        } else {
+            document.documentElement.classList.remove('dark');
+            themeToggleDarkIcon.classList.remove('hidden');
+        }
+
+        // Tıklama olayı ile tema değiştir
+        themeToggleBtn.addEventListener('click', function() {
+            themeToggleDarkIcon.classList.toggle('hidden');
+            themeToggleLightIcon.classList.toggle('hidden');
+
+            if (document.documentElement.classList.contains('dark')) {
+                document.documentElement.classList.remove('dark');
+                localStorage.setItem('color-theme', 'light');
+            } else {
+                document.documentElement.classList.add('dark');
+                localStorage.setItem('color-theme', 'dark');
+            }
+        });
+    </script>
 </body>
 </html>
