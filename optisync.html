@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OptiSync - Gizlilik Politikası / Privacy Policy</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            color: #2c3e50;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f8f9fa;
+        }
+        .container {
+            background-color: #ffffff;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        }
+        h1 {
+            color: #1a1a1a;
+            border-bottom: 2px solid #007aff;
+            padding-bottom: 12px;
+            margin-top: 0;
+            font-size: 28px;
+        }
+        h2 {
+            color: #007aff;
+            margin-top: 32px;
+            border-bottom: 1px solid #edf2f7;
+            padding-bottom: 6px;
+            font-size: 20px;
+        }
+        p, li {
+            color: #4a5568;
+            font-size: 15px;
+        }
+        ul {
+            padding-left: 20px;
+        }
+        strong {
+            color: #1a1a1a;
+        }
+        hr {
+            border: 0;
+            height: 1px;
+            background: #e2e8f0;
+            margin: 50px 0;
+        }
+        .dev-info {
+            background-color: #f7fafc;
+            padding: 15px;
+            border-left: 4px solid #007aff;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- TÜRKÇE SÜRÜM -->
+        <section id="tr-version">
+            <h1>Gizlilik Politikası</h1>
+            <p><strong>Son Güncelleme:</strong> 15 Haziran 2026</p>
+            
+            <p><strong>OptiSync</strong> ("biz", "uygulamamız" veya "sistemimiz"), kullanıcı gizliliğine en üst düzeyde önem veren, tamamen çevrimdışı (offline) ve izole (air-gapped) çalışan bir optik veri aktarım uygulamasıdır. Bu gizlilik politikası, uygulamamızı kullandığınızda verilerinizin nasıl yönetildiğini yasal ve teknik olarak açıklamaktadır.</p>
+
+            <h2>1. Bilgi Toplama ve Kullanma</h2>
+            <p>OptiSync, mimari tasarımı gereği kullanıcılarından hiçbir şekilde kişisel veri, analitik bilgi veya kullanım istatistiği <strong>toplamaz, kaydetmez, depolamaz ve üçüncü taraflarla paylaşmaz</strong>.</p>
+            <ul>
+                <li><strong>Kişisel Bilgiler:</strong> Adınız, e-posta adresiniz, telefon numaranız, IP adresiniz veya benzersiz cihaz kimliğiniz (UUID) gibi hiçbir tanımlayıcı bilgiye erişilmez ve toplanmaz.</li>
+                <li><strong>Dosyalar ve Veriler:</strong> Optik sinyale (QR kod dizisine) dönüştürdüğünüz veya kamera ile taradığınız hiçbir dosya, metin veya veri cihazınızın dışına çıkmaz. Tüm kodlama (encoding) ve kod çözme (decoding) işlemleri tamamen cihazınızın yerel uç belleğinde (RAM) anlık olarak gerçekleştirilir ve kalıcı olarak depolanmaz.</li>
+            </ul>
+
+            <h2>2. Cihaz İzinleri</h2>
+            <p>Uygulamanın temel işlevlerini yerine getirebilmesi için yalnızca aşağıdaki donanımsal ve sistemsel izinler talep edilir:</p>
+            <ul>
+                <li><strong>Kamera İzini (android.permission.CAMERA):</strong> Yüksek hızlı optik QR kod dizilerini gerçek zamanlı olarak taramak ve veri paketlerini yakalamak için zorunludur. Kamera akışı kesinlikle kaydedilmez, diske yazılmaz veya bir ağ üzerinden iletilmez; yalnızca anlık piksel analizi (live frame decoding) için işlenir.</li>
+                <li><strong>Depolama ve Medya Erişimi:</strong> Göndermek istediğiniz dosyaları seçebilmeniz veya optik yolla aldığınız dosyaları cihazınıza kaydedebilmeniz için modern Android standartlarına uygun olarak (Scoped Storage / Storage Access Framework) yalnızca seçtiğiniz dizin ve dosyalarla sınırlı olacak şekilde kullanılır. Uygulamanın tüm depolama birimine sınırsız erişim yetkisi yoktur.</li>
+            </ul>
+
+            <h2>3. Veri Güvenliği ve Çevrimdışı Yapı (Air-Gapped)</h2>
+            <p>OptiSync; internet bağlantısı (Wi-Fi, hücresel veri) veya radyo frekansı (Bluetooth, NFC vb.) sinyallerini kullanmadan çalışacak şekilde tasarlanmıştır. Bu fiziksel yalıtım sayesinde verileriniz, havadan paket dinleme (packet sniffing) veya uzaktan siber saldırı risklerine karşı tamamen korumalıdır. Sistem veri güvenliğini yerel donanım sınırları içinde tutar.</p>
+
+            <h2>4. Üçüncü Taraf Hizmetleri ve Reklamlar</h2>
+            <p>Uygulamamız bünyesinde hiçbir reklam kütüphanesi (AdMob vb.), harici analitik aracı (Firebase Analytics, Crashlytics vb.) veya bulut entegrasyonu <strong>bulunmamaktadır</strong>. Uygulama tamamen bağımsız ve kapalı devre bir kaynak kod yapısına sahiptir.</p>
+
+            <h2>5. İletişim</h2>
+            <p>Bu gizlilik politikası veya uygulamanın teknik yapısı hakkında sorularınız için geliştirici ekiple iletişime geçebilirsiniz:</p>
+            <div class="dev-info">
+                <p><strong>Geliştirici:</strong> we are TEMCOM<br>
+                <strong>E-posta:</strong> mtemurm@gmail.com</p>
+            </div>
+        </section>
+
+        <hr>
+
+        <!-- ENGLISH VERSION -->
+        <section id="en-version">
+            <h1>Privacy Policy</h1>
+            <p><strong>Last Updated:</strong> June 15, 2026</p>
+            
+            <p><strong>OptiSync</strong> ("we", "our app", or "our system") is a completely offline, air-gapped optical data transfer application engineered to prioritize user privacy at the highest hardware and software levels. This privacy policy outlines how data is handled within the application.</p>
+
+            <h2>1. Information Collection and Use</h2>
+            <p>By design, OptiSync <strong>does not collect, log, store, track, or share</strong> any personal data, analytical telemetry, or usage statistics from its users.</p>
+            <ul>
+                <li><strong>Personal Information:</strong> We do not access or collect personal metadata, including but not limited to names, email addresses, phone numbers, IP addresses, or unique device identifiers (UUID).</li>
+                <li><strong>Files and Data Payload:</strong> Any files, documents, or texts that you convert into optical streams or scan via the camera never leave the host device. All encoding and decoding operations execute volatilely within the device's local memory (RAM) and are never written to persistent logs.</li>
+            </ul>
+
+            <h2>2. Device Permissions Required</h2>
+            <p>To function properly, the application requires only the following baseline sandboxed hardware permissions:</p>
+            <ul>
+                <li><strong>Camera Permission (android.permission.CAMERA):</strong> Required to scan high-speed optical QR sequences in real-time. The live camera feed is processed strictly for transient pixel analysis (live frame decoding). It is never recorded, saved, or transmitted over any network interface.</li>
+                <li><strong>Storage and Media Access:</strong> Utilized strictly in compliance with modern operating system standards (Scoped Storage / Storage Access Framework) to read files selected by the user for transmission or to write reconstructed files directly to the local directory. The app does not maintain unrestricted root file-system access.</li>
+            </ul>
+
+            <h2>3. Data Security & Air-Gapping</h2>
+            <p>OptiSync is strictly engineered to operate without internet access (Wi-Fi, cellular networks) or short-range RF transceivers (Bluetooth, NFC). This physical separation insulates your local transmissions from over-the-air interceptions, remote exploits, or packet sniffing. Your operations remain entirely inside a verified local loop.</p>
+
+            <h2>4. Third-Party Libraries and Trackers</h2>
+            <p>Our codebase <strong>does not integrate</strong> any advertising SDKs (e.g., AdMob), behavioral profiling suites, third-party analytics (e.g., Firebase Analytics), or cloud sync services. The application maintains a completely isolated architecture.</p>
+
+            <h2>5. Contact Information</h2>
+            <p>If you have any questions or professional inquiries regarding this privacy policy, please contact us at:</p>
+            <div class="dev-info">
+                <p><strong>Developer:</strong> we are TEMCOM<br>
+                <strong>Email:</strong> mtemurm@gmail.com</p>
+            </div>
+        </section>
+    </div>
+</body>
+</html>
